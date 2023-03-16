@@ -1,7 +1,60 @@
 <mvc:View controllerName="hogent.flightapp.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+    <Shell id="shell">
+    <App id="app">
+        <pages>
+            <Page id="page" title="{i18n>title}">
+                        <Table id="idFlightsTable"
+		inset="false"
+		items="{/Flights}">
+		
+		<columns>
+			<Column id="_IDGenColumn1"
+				width="12em">
+				<Text id="_IDGenText1" text="Airline" />
+			</Column>
+			<Column id="_IDGenColumn2"
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text id="_IDGenText2" text="Flight Number" />
+			</Column>
+			<Column id="_IDGenColumn3"
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text id="_IDGenText3" text="Flight Date" />
+			</Column>
+			<Column id="_IDGenColumn4"
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text id="_IDGenText4" text="Price" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle">
+				<cells>
+					<Text id="_IDGenText5"
+						text="{carrID}" />
+					<Text id="_IDGenText6"
+						text="{connID}" />
+					<Text id="_IDGenText7"
+						text="{fldate}" />
+					
+					<ObjectNumber id="_IDGenObjectNumber1"
+							number="{
+								parts:[{path:'price'},{path:'currency_code'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+							unit="{currency_code}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+            </Page>
+        </pages>
+    </App>
+    </Shell>
 </mvc:View>
