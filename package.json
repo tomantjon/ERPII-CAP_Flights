@@ -11,9 +11,14 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.108.0",
     "sqlite3": "^5.0.4"
   },
   "scripts": {
-    "start": "cds run"
-  }
+    "start": "cds run",
+    "watch-flightapp": "cds watch --open flightapp/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/flightapp"
+  ]
 }
