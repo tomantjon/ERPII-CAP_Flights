@@ -1,0 +1,11 @@
+### Add Flight
+POST http://localhost:4004/v2/flightSet/Flights
+Content-Type: application/json
+
+{ "carrID":"AA", 
+  "connID":"0123",
+  "fldate":"2022-03-30T12:00:00Z"
+}
+
+### Get All Flights
+GET http://localhost:4004/v2/flightSet/Flights
