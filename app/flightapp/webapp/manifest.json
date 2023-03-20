@@ -24,6 +24,15 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "4.0"
         }
+      },
+      "v2mainService": {
+        "uri": "/v2/flightSet/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -78,6 +87,16 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "v2model": {
+        "dataSource": "v2mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
       }
     },
     "resources": {
@@ -101,9 +120,7 @@
         {
           "name": "RouteApp",
           "pattern": ":?query:",
-          "target": [
-            "TargetApp"
-          ]
+          "target": ["TargetApp"]
         }
       ],
       "targets": {
