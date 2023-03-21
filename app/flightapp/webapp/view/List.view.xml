@@ -39,6 +39,8 @@
         <DatePicker id="DP1"
           
           
+          
+          
                                 
                             value = "{form>/fldate}"
           valueFormat="yyyy-MM-dd"
@@ -85,7 +87,9 @@
       </columns>
       <items>
         <ColumnListItem id="_IDGenColumnListItem1"
-          vAlign="Middle">
+          vAlign="Middle"
+          type="Navigation"
+          press="handleListItemPress">
           <cells>
             <Text id="txtCarrId"
               text="{carrID}" />

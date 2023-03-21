@@ -35,6 +35,28 @@ sap.ui.define(
           },
         });
       },
+      handleListItemPress: function (oEvent) {
+        //Get data from click event on table
+        let sCarrId = oEvent
+          .getSource()
+          .getBindingContext()
+          .getProperty("carrID");
+        let sConnId = oEvent
+          .getSource()
+          .getBindingContext()
+          .getProperty("connID");
+        let sFlDate = oEvent
+          .getSource()
+          .getBindingContext()
+          .getProperty("fldate");
+
+        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        oRouter.navTo("Detail", {
+          carrid: sCarrId,
+          connid: sConnId,
+          fldate: sFlDate,
+        });
+      },
     });
   }
 );

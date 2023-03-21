@@ -121,6 +121,11 @@
           "name": "List",
           "pattern": "",
           "target": ["List"]
+        },
+        {
+          "name": "Detail",
+          "pattern": "flightSet/{carrid}/{connid}/{fldate}",
+          "target": ["Detail"]
         }
       ],
       "targets": {
@@ -130,6 +135,13 @@
           "clearControlAggregation": false,
           "viewId": "List",
           "viewName": "List"
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Detail",
+          "viewName": "Detail"
         }
       }
     },
