@@ -118,18 +118,18 @@
       },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": ":?query:",
-          "target": ["TargetApp"]
+          "name": "List",
+          "pattern": "",
+          "target": ["List"]
         }
       ],
       "targets": {
-        "TargetApp": {
+        "List": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App"
+          "viewId": "List",
+          "viewName": "List"
         }
       }
     },
