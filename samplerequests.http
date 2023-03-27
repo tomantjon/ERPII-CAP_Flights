@@ -8,4 +8,9 @@ Content-Type: application/json
 }
 
 ### Get All Flights
-GET http://localhost:4004/v2/flightSet/Flights
+GET http://localhost:4004/flightSet/Flights
+
+### Get A single flight
+//GET http://localhost:4004/v2/flightSet/Flights(carrID='AZ',connID='0788',fldate=datetimeoffset'2022-03-29T22:00:00Z')
+GET http://localhost:4004/v2/flightSet/Flights(carrID='AZ',connID='0788',fldate=datetimeoffset'2022-03-29T22:00:00Z')
+//GET http://localhost:4004/flightSet/Flights(carrID='AZ',connID='0788',fldate=2022-03-30)

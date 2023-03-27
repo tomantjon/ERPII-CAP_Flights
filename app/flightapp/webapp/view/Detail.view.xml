@@ -6,5 +6,13 @@
   xmlns:f="sap.ui.layout.form">
   <Page id="page"
     title="Detail">
+    <VBox id="vbxMain">
+      <Text id="txtCarrId"
+        text="Airline: {v2model>carrID}" />
+      <Text id="txtConnId"
+        text="Connection: {v2model>connID}" />
+      <Text id="txtFLDate"
+        text="Flight Date: {v2model>fldate}" />
+    </VBox>
   </Page>
 </mvc:View>
