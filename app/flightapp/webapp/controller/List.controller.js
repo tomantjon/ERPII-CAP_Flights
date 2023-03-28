@@ -3,11 +3,13 @@ sap.ui.define(
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, JSONModel, MessageBox) {
+  function (Controller, JSONModel, MessageBox, Filter, FilterOperator) {
     "use strict";
 
     return Controller.extend("hogent.flightapp.controller.List", {
@@ -20,6 +22,22 @@ sap.ui.define(
         var oModel = new JSONModel(oFlight);
         this.getView().setModel(oModel, "form");
       },
+
+      onSearch: function (oEvent) {
+        // add filter for search
+        var aFilters = [];
+        var sQuery = oEvent.getSource().getValue();
+        if (sQuery && sQuery.length > 0) {
+          var filter = new Filter("carrID", FilterOperator.Contains, sQuery);
+          aFilters.push(filter);
+        }
+
+        // update list binding
+        var oTable = this.byId("idFlightsTable");
+        var oBinding = oTable.getBinding("items");
+        oBinding.filter(aFilters, "Application");
+      },
+
       handleSavePress: function () {
         var oForm = this.getView().getModel("form").getData();
         oForm.fldate = new Date(oForm.fldate);
