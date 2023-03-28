@@ -21,3 +21,11 @@ entity Flights {
       seatsmax_f : Integer;
       seatsocc_f : Integer;
 }
+
+entity Games {
+  key Id          : UUID;
+      Name        : String(40);
+      Developer   : String(40);
+      Genre       : String(20);
+      ReleaseDate : DateTime;
+}
