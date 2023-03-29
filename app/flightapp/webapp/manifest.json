@@ -33,6 +33,15 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
+      },
+      "v2gameService": {
+        "uri": "/v2/gameSet/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -90,6 +99,16 @@
       },
       "v2model": {
         "dataSource": "v2mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "v2gameModel": {
+        "dataSource": "v2gameService",
         "preload": true,
         "settings": {
           "synchronizationMode": "None",

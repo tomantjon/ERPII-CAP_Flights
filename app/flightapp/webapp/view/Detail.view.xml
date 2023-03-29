@@ -36,8 +36,12 @@
                   <StandardListItem id="_IDGenStandardListItem1"
                     title="Plane Type"
                     description="{v2model>planetype}" />
+
                 </items>
               </List>
+              <MultiInput id="multiInput"
+                width="60%"
+                valueHelpRequest=".onValueHelpRequested" />
             </content>
           </IconTabFilter>
           <IconTabFilter text="Price Info"
