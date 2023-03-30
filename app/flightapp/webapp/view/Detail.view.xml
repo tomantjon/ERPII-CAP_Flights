@@ -1,0 +1,17 @@
+<mvc:View controllerName="hogent.flightapp.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  displayBlock="true"
+  xmlns="sap.m">
+  <Page id="page"
+    title="Detail">
+    <VBox >
+      <Text id="_IDGenText"
+        text="Airline: {v2model>carrID}" />
+      <Text id="_IDGenText6"
+        text="Connection: {v2model>connID}" />
+      <Text id="_IDGenText7"
+        text="Price: {v2model>price}" />
+    </VBox>
+  </Page>
+</mvc:View>
