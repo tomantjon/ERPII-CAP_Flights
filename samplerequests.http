@@ -1,5 +1,5 @@
 ### Add Flight
-POST http://localhost:4004/v2/flightSet/Flights
+POST http://localhost:4004/odata/v2/flightSet/Flights
 Content-Type: application/json
 
 { "carrID":"AA", 
@@ -8,4 +8,4 @@ Content-Type: application/json
 }
 
 ### Get All Flights
-GET http://localhost:4004/v2/flightSet/Flights
+GET http://localhost:4004/odata/v2/flightSet/Flights
