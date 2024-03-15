@@ -1,0 +1,89 @@
+<mvc:View controllerName="flightapp.controller.List"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page"
+        title="{i18n>title}">
+        <content>
+            <f:SimpleForm id="frmAddFlight"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Address"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false">
+                <f:content>
+                    <Label text="CarrierID" />
+                    <Input id="txtCarrID"
+                        value="{form>/carrID}" />
+                    <Label text="ConnectionID" />
+                    <Input id="txtConnID"
+                        value="{form>/connID}" />
+                    <Label text="FlightDate" />
+                    <DatePicker id="DP1"
+                        value="{form>/fldate}"
+                        placeholder="Enter Date"
+                        change="handleChange"
+                        class="sapUiSmallMarginBottom"/>
+                </f:content>
+                <Button type="Accept"
+                    text="Add Flight"
+                    press="onPress">
+                </Button>
+            </f:SimpleForm>
+
+            <Table id="idProductsTable"
+                inset="false"
+                items="{
+			path: '/Flights',
+            sorter: {
+				path: 'fldate'
+			}
+		}">
+                <columns>
+                    <Column width="12em">
+                        <Text text="Carrier ID" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Connection ID" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Flight Date" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Price" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle"
+                        type="Navigation"
+                        press="handleListItemPressed">
+                        <cells>
+                            <Text text="{carrID}" />
+                            <Text text="{connID}" />
+                            <Text text="{fldate}" />
+                            <ObjectNumber number="{
+								parts:[{path:'price'},{path:'currency_code'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+                                unit="{currency_code}" />
+                        </cells>
+
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

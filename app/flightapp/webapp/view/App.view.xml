@@ -1,0 +1,10 @@
+<mvc:View controllerName="flightapp.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Shell id="shell">
+        <App id="app">
+        </App>
+    </Shell>
+</mvc:View>

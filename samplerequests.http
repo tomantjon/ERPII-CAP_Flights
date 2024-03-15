@@ -9,3 +9,6 @@ Content-Type: application/json
 
 ### Get All Flights
 GET http://localhost:4004/odata/v2/flightSet/Flights
+
+### Get a single flight
+GET  http://localhost:4004/odata/v2/flightSet/Flights(carrID='AZ',connID='0788',fldate=2022-03-29T22%3A00%3A00Z)

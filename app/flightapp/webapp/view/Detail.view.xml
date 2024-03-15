@@ -1,0 +1,9 @@
+<mvc:View controllerName="flightapp.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
+  xmlns:f="sap.ui.layout.form"
+  xmlns="sap.m">
+  <Page id="page"
+    title="Detail">
+  </Page>
+</mvc:View>
