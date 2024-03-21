@@ -38,7 +38,11 @@ sap.ui.define(
       handleListItemPressed: function (oEvent) {
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         oRouter.navTo("Detail", {
-          path: oEvent.getSource().getBindingContext().getPath(),
+          flightpath: oEvent
+            .getSource()
+            .getBindingContext()
+            .getPath()
+            .substr(1),
         });
       },
     });

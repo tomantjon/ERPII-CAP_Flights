@@ -5,5 +5,10 @@
   xmlns="sap.m">
   <Page id="page"
     title="Detail">
+    <VBox>
+      <Text text="Carrier ID: {carrID}"></Text>
+      <Text text="Connection ID: {connID}"></Text>
+      <Text text="Price: {price}"></Text>
+    </VBox>
   </Page>
 </mvc:View>

@@ -7,7 +7,18 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("flightapp.controller.Detail", {
-      onInit: function () {},
+      onInit: function () {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.attachRouteMatched(this._onRouteMatched, this);
+        //Bind the model to the selected flightpath
+      },
+
+      _onRouteMatched: function (oEvent) {
+        var oArgs = oEvent.getParameter("arguments");
+        var oUrl = "/" + oArgs.flightpath;
+
+        this.getView().bindElement({ path: oUrl });
+      },
     });
   }
 );

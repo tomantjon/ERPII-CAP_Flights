@@ -122,7 +122,7 @@
         },
         {
           "name": "Detail",
-          "pattern": "detail/{path}",
+          "pattern": "detail/{flightpath}",
           "target": ["Detail"]
         }
       ],
