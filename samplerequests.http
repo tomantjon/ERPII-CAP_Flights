@@ -1,5 +1,5 @@
-### Add Flight
-POST http://localhost:4004/v2/flightSet/Flights
+### Add Flight V2
+POST http://localhost:4004/odata/v2/flightSet/Flights
 Content-Type: application/json
 
 { "carrID":"AA", 
@@ -10,7 +10,9 @@ Content-Type: application/json
 ### Get All Flights
 GET http://localhost:4004/flightSet/Flights
 
-### Get A single flight
-//GET http://localhost:4004/v2/flightSet/Flights(carrID='AZ',connID='0788',fldate=datetimeoffset'2022-03-29T22:00:00Z')
-GET http://localhost:4004/v2/flightSet/Flights(carrID='AZ',connID='0788',fldate=datetimeoffset'2022-03-29T22:00:00Z')
-//GET http://localhost:4004/flightSet/Flights(carrID='AZ',connID='0788',fldate=2022-03-30)
+### Get A single flight v2
+GET http://localhost:4004/odata/v2/flightSet/Flights(carrID='AZ',connID='0788',fldate=2022-04-30T22%3A00%3A00Z)
+
+### Get All Games
+GET http://localhost:4004/gameSet/Games
+

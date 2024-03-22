@@ -37,24 +37,14 @@ sap.ui.define(
       },
       handleListItemPress: function (oEvent) {
         //Get data from click event on table
-        let sCarrId = oEvent
-          .getSource()
-          .getBindingContext()
-          .getProperty("carrID");
-        let sConnId = oEvent
-          .getSource()
-          .getBindingContext()
-          .getProperty("connID");
-        let sFlDate = oEvent
-          .getSource()
-          .getBindingContext()
-          .getProperty("fldate");
+        var oSelectedItem = oEvent.getSource().getBindingContext();
+        //Retrieve the path of the selected item and strip the starting '/'
+        //to avoid an invalid URL
+        var sFlightPath = oSelectedItem.getPath().substr(1);
 
-        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        var oRouter = this.getOwnerComponent().getRouter();
         oRouter.navTo("Detail", {
-          carrid: sCarrId,
-          connid: sConnId,
-          fldate: sFlDate,
+          flightpath: sFlightPath,
         });
       },
     });
