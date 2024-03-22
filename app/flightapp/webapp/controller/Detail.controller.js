@@ -27,7 +27,7 @@ sap.ui.define(
         this._setDefaultTokens();
       },
 
-      _setDefaultTokens: function (oData) {
+      _setDefaultTokens: function () {
         var oMultiInput = this.byId("multiInput");
         //oMultiInput.addValidator(this._onMultiInputValidate);
         oMultiInput.setTokens(this._getDefaultTokens());
