@@ -1,0 +1,106 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  controllerName="hogent.flightapp.controller.Detail"
+  displayBlock="true">
+  <Page id="page"
+    title="Detail">
+    <VBox id="vbxMain">
+
+      <IconTabBar selectedKey="__filter0"
+        id="bar0">
+        <items>
+          <IconTabFilter text="Orders"
+            id="filter0"
+            iconColor="Default"
+            icon="sap-icon://flight">
+            <content>
+              <List noDataText="Geen gegevens"
+                id="list1">
+                <items>
+                  <StandardListItem title="Airline"
+                    description="{v2model>carrID}"
+                    id="item2"/>
+                  <StandardListItem title="Flight Number"
+                    description="{v2model>connID}"
+                    id="item3"/>
+                  <StandardListItem title="Date"
+                    description="{path: 'v2model>fldate',
+				        type: 'sap.ui.model.type.Date',
+				        formatOptions: {
+                            style: 'medium'
+                        }
+                        }"
+                    id="item4"/>
+                  <StandardListItem id="_IDGenStandardListItem1"
+                    title="Plane Type"
+                    description="{v2model>planetype}" />
+                </items>
+              </List>
+            </content>
+          </IconTabFilter>
+          <IconTabFilter text="Price Info"
+            icon="sap-icon://travel-expense"
+            iconColor="Default"
+            id="filter1">
+            <content>
+              <Text id="_IDGenText1"
+                text="Current Price: "></Text>
+              <ObjectNumber id="_IDGenObjectNumber1"
+                number="{v2model>price}"
+                unit="{v2model>currency_code}"
+                state="{= ${v2model>price} > 200 ? 'Error' : 'Success'}"/>
+            </content>
+          </IconTabFilter>
+          <IconTabFilter text="Passengers Info"
+            count="{= ${v2model>seatsocc} + ${v2model>seatsocc_b} + ${v2model>seatsocc_f}}"
+            icon="sap-icon://company-view"
+            iconColor="Default"
+            id="filter2">
+            <content>
+              <List id="_IDGenList1"
+                noDataText="Geen gegevens"
+                headerText="Economy">
+                <items>
+                  <StandardListItem id="_IDGenStandardListItem2"
+                    title="Max. capacity econ"
+                    description="{v2model>seatsmax}" />
+                  <StandardListItem id="_IDGenStandardListItem3"
+                    title="Occupied econ"
+                    description="{v2model>seatsocc}" />
+                </items>
+              </List>
+
+              <List id="_IDGenList2"
+                noDataText="Geen gegevens"
+                headerText="Business">
+                <items>
+                  <StandardListItem id="_IDGenStandardListItem4"
+                    title="Max. capacity bus."
+                    description="{v2model>seatsmax_b}" />
+                  <StandardListItem id="_IDGenStandardListItem5"
+                    title="Occupied bus."
+                    description="{v2model>seatsocc_b}" />
+                </items>
+              </List>
+
+              <List id="_IDGenList3"
+                noDataText="Geen gegevens"
+                headerText="1st Class">
+                <items>
+                  <StandardListItem id="_IDGenStandardListItem6"
+                    title="Max. capacity 1st"
+                    description="{v2model>seatsmax_f}" />
+                  <StandardListItem id="_IDGenStandardListItem7"
+                    title="Occupied 1st"
+                    description="{v2model>seatsocc_f}" />
+                </items>
+              </List>
+            </content>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+    </VBox>
+  </Page>
+</mvc:View>

@@ -1,0 +1,15 @@
+{
+    "name": "flightapp",
+    "version": "0.0.1",
+    "description": "A Flight SAPUI5 Fiori Freestyle App based on a CAP backend",
+    "keywords": [
+        "ui5",
+        "openui5",
+        "sapui5"
+    ],
+    "main": "webapp/index.html",
+    "scripts": {
+        "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
+    },
+    "devDependencies": { }
+}
