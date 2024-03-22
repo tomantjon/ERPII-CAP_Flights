@@ -26,7 +26,7 @@
         }
       },
       "v2mainService": {
-        "uri": "/v2/flightSet/",
+        "uri": "/odata/v2/flightSet/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -35,7 +35,7 @@
         }
       },
       "v2gameService": {
-        "uri": "/v2/gameSet/",
+        "uri": "/odata/v2/gameSet/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -133,18 +133,19 @@
         "viewPath": "hogent.flightapp.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "path": "hogent.flightapp.view"
       },
       "routes": [
         {
           "name": "List",
           "pattern": "",
-          "target": ["List"]
+          "target": "List"
         },
         {
           "name": "Detail",
-          "pattern": "flightSet/{carrid}/{connid}/{fldate}",
-          "target": ["Detail"]
+          "pattern": "detail/{flightpath}",
+          "target": "Detail"
         }
       ],
       "targets": {

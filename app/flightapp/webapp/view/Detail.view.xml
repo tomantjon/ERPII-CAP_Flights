@@ -20,13 +20,13 @@
                 id="list1">
                 <items>
                   <StandardListItem title="Airline"
-                    description="{v2model>carrID}"
+                    description="{carrID}"
                     id="item2"/>
                   <StandardListItem title="Flight Number"
-                    description="{v2model>connID}"
+                    description="{connID}"
                     id="item3"/>
                   <StandardListItem title="Date"
-                    description="{path: 'v2model>fldate',
+                    description="{path: 'fldate',
 				        type: 'sap.ui.model.type.Date',
 				        formatOptions: {
                             style: 'medium'
@@ -35,7 +35,7 @@
                     id="item4"/>
                   <StandardListItem id="_IDGenStandardListItem1"
                     title="Plane Type"
-                    description="{v2model>planetype}" />
+                    description="{planetype}" />
 
                 </items>
               </List>
@@ -52,13 +52,13 @@
               <Text id="_IDGenText1"
                 text="Current Price: "></Text>
               <ObjectNumber id="_IDGenObjectNumber1"
-                number="{v2model>price}"
-                unit="{v2model>currency_code}"
-                state="{= ${v2model>price} > 200 ? 'Error' : 'Success'}"/>
+                number="{price}"
+                unit="{currency_code}"
+                state="{= ${price} > 200 ? 'Error' : 'Success'}"/>
             </content>
           </IconTabFilter>
           <IconTabFilter text="Passengers Info"
-            count="{= ${v2model>seatsocc} + ${v2model>seatsocc_b} + ${v2model>seatsocc_f}}"
+            count="{= ${seatsocc} + ${seatsocc_b} + ${seatsocc_f}}"
             icon="sap-icon://company-view"
             iconColor="Default"
             id="filter2">
@@ -69,10 +69,10 @@
                 <items>
                   <StandardListItem id="_IDGenStandardListItem2"
                     title="Max. capacity econ"
-                    description="{v2model>seatsmax}" />
+                    description="{seatsmax}" />
                   <StandardListItem id="_IDGenStandardListItem3"
                     title="Occupied econ"
-                    description="{v2model>seatsocc}" />
+                    description="{seatsocc}" />
                 </items>
               </List>
 
@@ -82,10 +82,10 @@
                 <items>
                   <StandardListItem id="_IDGenStandardListItem4"
                     title="Max. capacity bus."
-                    description="{v2model>seatsmax_b}" />
+                    description="{seatsmax_b}" />
                   <StandardListItem id="_IDGenStandardListItem5"
                     title="Occupied bus."
-                    description="{v2model>seatsocc_b}" />
+                    description="{seatsocc_b}" />
                 </items>
               </List>
 
@@ -95,10 +95,10 @@
                 <items>
                   <StandardListItem id="_IDGenStandardListItem6"
                     title="Max. capacity 1st"
-                    description="{v2model>seatsmax_f}" />
+                    description="{seatsmax_f}" />
                   <StandardListItem id="_IDGenStandardListItem7"
                     title="Occupied 1st"
-                    description="{v2model>seatsocc_f}" />
+                    description="{seatsocc_f}" />
                 </items>
               </List>
             </content>
