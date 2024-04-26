@@ -1,7 +1,63 @@
 <mvc:View controllerName="hogent.flightapp.controller.App"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+    <App id="app">
+        <Page id="page"
+            title="{i18n>title}">
+            <Table id="idFlightsTable"
+                inset="false"
+                items="{/Flights}">
+
+                <columns>
+                    <Column id="clmAirline"
+                        width="12em">
+                        <Text id="lblAirline"
+                            text="Airline" />
+                    </Column>
+                    <Column id="clmFlightNum"
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                        <Text id="lblFlightNum"
+                            text="Flight Number" />
+                    </Column>
+                    <Column id="clmFlightDate"
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        hAlign="End">
+                        <Text id="lblFlightDate"
+                            text="Flight Date" />
+                    </Column>
+                    <Column id="clmPrice"
+                        minScreenWidth="Desktop"
+                        demandPopin="true"
+                        hAlign="Center">
+                        <Text id="lblPrice"
+                            text="Price" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1"
+                        vAlign="Middle">
+                        <cells>
+                            <Text id="txtCarrId"
+                                text="{carrID}" />
+                            <Text id="txtConnId"
+                                text="{connID}" />
+                            <Text id="txtFldate"
+                                text="{fldate}" />
+
+                            <ObjectNumber id="obnPrice"
+                                number="{
+								parts:[{path:'price'},{path:'currency_code'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+                                unit="{currency_code}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Page>
+    </App>
 </mvc:View>
