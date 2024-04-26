@@ -23,6 +23,14 @@
           "annotations": [],
           "odataVersion": "4.0"
         }
+      },
+      "v2mainService": {
+        "uri": "/odata/v2/flightSet/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -77,6 +85,17 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "v2model": {
+        "dataSource": "v2mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "useBatch": false
+        }
       }
     },
     "resources": {
@@ -101,6 +120,11 @@
           "name": "RouteApp",
           "pattern": ":?query:",
           "target": ["List"]
+        },
+        {
+          "name": "Listv2",
+          "pattern": "/odatav2",
+          "target": ["Listv2"]
         }
       ],
       "targets": {
@@ -110,6 +134,13 @@
           "clearControlAggregation": false,
           "viewId": "List",
           "viewName": "List"
+        },
+        "Listv2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Listv2",
+          "viewName": "Listv2"
         }
       }
     },

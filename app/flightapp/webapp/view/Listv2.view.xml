@@ -1,0 +1,117 @@
+<mvc:View controllerName="hogent.flightapp.controller.Listv2"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form">
+  <App id="app">
+    <Page id="page"
+      title="{i18n>ListPageTitle}">
+
+      <f:SimpleForm id="frmFlight"
+        editable="true"
+        layout="ResponsiveGridLayout"
+        title="Add Flight"
+        labelSpanXL="3"
+        labelSpanL="3"
+        labelSpanM="3"
+        labelSpanS="12"
+        adjustLabelSpan="false"
+        emptySpanXL="4"
+        emptySpanL="4"
+        emptySpanM="4"
+        emptySpanS="0"
+        columnsXL="1"
+        columnsL="1"
+        columnsM="1"
+        singleContainerFullSize="false">
+        <f:content>
+          <Label id="_IDGenLabel1"
+            text="Airline" />
+          <Input id="formAirline"
+            value="{form>/carrID}" />
+          <Label id="_IDGenLabel2"
+            text="flight Number" />
+          <Input id="_IDGenInput1"
+            value="{form>/connID}">
+          </Input>
+
+          <Label id="_IDGenLabel3"
+            text="Date" />
+          <DatePicker id="DP1"
+            
+            
+            
+            
+            
+            
+                        
+                        
+                            value = "{form>/fldate}"
+            valueFormat="yyyy-MM-dd"
+            placeholder="Enter Date"
+            change="handleChange"
+            class="sapUiSmallMarginBottom"/>
+        </f:content>
+        <Button id="btnSave"
+          type="Accept"
+          text="Add Flight"
+          press="handleSavePress">
+        </Button>
+      </f:SimpleForm>
+      <Table id="idFlightsTable"
+        inset="false"
+        items="{path : '/Flights', model : 'v2model'}">
+
+        <columns>
+          <Column id="clmAirline"
+            width="12em">
+            <Text id="lblAirline"
+              text="Airline" />
+          </Column>
+          <Column id="clmFlightNum"
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text id="lblFlightNum"
+              text="Flight Number" />
+          </Column>
+          <Column id="clmFlightDate"
+            minScreenWidth="Desktop"
+            demandPopin="true"
+            hAlign="End">
+            <Text id="lblFlightDate"
+              text="Flight Date" />
+          </Column>
+          <Column id="clmPrice"
+            minScreenWidth="Desktop"
+            demandPopin="true"
+            hAlign="Center">
+            <Text id="lblPrice"
+              text="Price" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem id="_IDGenColumnListItem1"
+            vAlign="Middle">
+            <cells>
+              <Text id="txtCarrId"
+                text="{v2model>carrID}" />
+              <Text id="txtConnId"
+                text="{v2model>connID}" />
+              <Text id="txtFldate"
+                text="{v2model>fldate}" />
+
+              <ObjectNumber id="obnPrice"
+                number="{
+								parts:[{path:'v2model>price'},{path:'v2model>currency_code'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+                unit="{v2model>currency_code}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </Page>
+  </App>
+</mvc:View>
