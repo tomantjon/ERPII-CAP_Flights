@@ -1,10 +1,58 @@
 <mvc:View controllerName="hogent.flightapp.controller.App"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
     <App id="app">
         <Page id="page"
             title="{i18n>title}">
+
+            <f:SimpleForm id="frmFlight"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Add Flight"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false">
+                <f:content>
+                    <Label id="_IDGenLabel1"
+                        text="Airline" />
+                    <Input id="formAirline"
+                        value="" />
+                    <Label id="_IDGenLabel2"
+                        text="flight Number" />
+                    <Input id="_IDGenInput1"
+                        value="">
+                    </Input>
+
+                    <Label id="_IDGenLabel3"
+                        text="Date" />
+                    <DatePicker id="DP1"
+                        
+                        
+                            value = ""
+                        valueFormat="yyyy-MM-dd"
+                        placeholder="Enter Date"
+                        change="handleChange"
+                        class="sapUiSmallMarginBottom"/>
+                </f:content>
+                <Button id="btnSave"
+                    type="Accept"
+                    text="Add Flight"
+                    press="handleSavePress">
+                </Button>
+            </f:SimpleForm>
             <Table id="idFlightsTable"
                 inset="false"
                 items="{/Flights}">
