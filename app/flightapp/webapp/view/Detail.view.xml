@@ -1,0 +1,13 @@
+<mvc:View controllerName="hogent.flightapp.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
+  xmlns="sap.m">
+  <Page id="page"
+    title="Detail">
+    <VBox id="vbxMain">
+      <Text text="{carrID}" />
+      <Text text="{connID}" />
+      <Text text="{fldate}" />
+    </VBox>
+  </Page>
+</mvc:View>

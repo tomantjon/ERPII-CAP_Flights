@@ -27,6 +27,19 @@ sap.ui.define(
         this._createFlightV4(oForm);
       },
 
+      handleListItemPress: function (oEvent) {
+        //Get data from click event on table
+        var oSelectedItem = oEvent.getSource().getBindingContext();
+        //Retrieve the path of the selected item and strip the starting '/'
+        //to avoid an invalid URL
+        var sFlightPath = oSelectedItem.getPath().substr(1);
+
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("Detail", {
+          flightpath: sFlightPath,
+        });
+      },
+
       _createFlightV4: function (oFlight) {
         var oContext = this.getView()
           .byId("idFlightsTable")

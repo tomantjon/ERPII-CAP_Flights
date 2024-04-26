@@ -125,6 +125,11 @@
           "name": "Listv2",
           "pattern": "/odatav2",
           "target": ["Listv2"]
+        },
+        {
+          "name": "Detail",
+          "pattern": "detail/{flightpath}",
+          "target": ["Detail"]
         }
       ],
       "targets": {
@@ -141,6 +146,13 @@
           "clearControlAggregation": false,
           "viewId": "Listv2",
           "viewName": "Listv2"
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Detail",
+          "viewName": "Detail"
         }
       }
     },
