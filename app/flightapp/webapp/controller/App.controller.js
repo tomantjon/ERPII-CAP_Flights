@@ -22,8 +22,30 @@ sap.ui.define(
       },
       handleSavePress: function () {
         var oForm = this.getView().getModel("form").getData();
-        console.log(oForm);
-        MessageBox.success("Add Button clicked");
+        oForm.fldate = new Date(oForm.fldate);
+
+        this._createFlightV4(oForm);
+      },
+
+      _createFlightV4: function (oFlight) {
+        var oContext = this.getView()
+          .byId("idFlightsTable")
+          .getBinding("items")
+          .create(oFlight);
+
+        oContext.created().then(
+          function () {
+            // Flight successfully created
+            MessageBox.success("Data was created successfully");
+          },
+          function (oError) {
+            MessageBox.error("Error while creating the data");
+            // handle rejection of entity creation; if oError.canceled === true then the transient entity has been deleted
+            if (!oError.canceled) {
+              throw oError; // unexpected error
+            }
+          }
+        );
       },
     });
   }
