@@ -29,11 +29,11 @@
                     <Label id="_IDGenLabel1"
                         text="Airline" />
                     <Input id="formAirline"
-                        value="" />
+                        value="{form>/carrID}" />
                     <Label id="_IDGenLabel2"
                         text="flight Number" />
                     <Input id="_IDGenInput1"
-                        value="">
+                        value="{form>/connID}">
                     </Input>
 
                     <Label id="_IDGenLabel3"
@@ -41,7 +41,7 @@
                     <DatePicker id="DP1"
                         
                         
-                            value = ""
+                            value = "{form>/fldate}"
                         valueFormat="yyyy-MM-dd"
                         placeholder="Enter Date"
                         change="handleChange"
