@@ -1,0 +1,120 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "hogent.flightfcl",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.12.5",
+      "toolsId": "2ee39a66-46a5-4601-90f5-4fd2a2c71b2b"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/flightSet/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.123.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "hogent.flightfcl.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "hogent.flightfcl.view",
+        "controlAggregation": "flexibleColumnLayout",
+        "transition": "slide",
+        "bypassed": {}
+      },
+      "routes": [
+        {
+          "name": "List",
+          "pattern": ":layout:",
+          "target": ["List"]
+        }
+      ],
+      "targets": {
+        "List": {
+          "viewType": "XML",
+          "controlAggregation": "beginColumnPages"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "hogent.flightfcl.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "fcl"
+    }
+  }
+}

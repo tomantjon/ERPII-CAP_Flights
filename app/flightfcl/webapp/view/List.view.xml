@@ -1,0 +1,86 @@
+<mvc:View controllerName="hogent.flightfcl.controller.List"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:mvc="sap.ui.core.mvc">
+  <f:DynamicPage id="dynamicPageId"
+    toggleHeaderOnTitleClick="false">
+    <!-- DynamicPage Title -->
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="Flights"/>
+        </f:heading>
+      </f:DynamicPageTitle>
+    </f:title>
+
+    <!-- DynamicPage Content -->
+    <f:content>
+      <VBox fitContainer="true">
+        <Table id="idFlightsTable"
+          inset="false"
+          items="{/Flights}">
+
+          <columns>
+            <Column id="clmAirline"
+              width="12em">
+              <Text id="lblAirline"
+                text="Airline" />
+            </Column>
+            <Column id="clmFlightNum"
+              minScreenWidth="Tablet"
+              demandPopin="true">
+              <Text id="lblFlightNum"
+                text="Flight Number" />
+            </Column>
+            <Column id="clmFlightDate"
+              minScreenWidth="Desktop"
+              demandPopin="true"
+              hAlign="End">
+              <Text id="lblFlightDate"
+                text="Flight Date" />
+            </Column>
+            <Column id="clmPrice"
+              minScreenWidth="Desktop"
+              demandPopin="true"
+              hAlign="Center">
+              <Text id="lblPrice"
+                text="Price" />
+            </Column>
+          </columns>
+          <items>
+            <ColumnListItem id="_IDGenColumnListItem1"
+              vAlign="Middle">
+              <cells>
+                <Text id="txtCarrId"
+                  text="{carrID}" />
+                <Text id="txtConnId"
+                  text="{connID}" />
+                <Text id="txtFldate"
+                  text="{fldate}" />
+
+                <ObjectNumber id="obnPrice"
+                  number="{
+								parts:[{path:'price'},{path:'currency_code'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+                  unit="{currency_code}" />
+              </cells>
+            </ColumnListItem>
+          </items>
+        </Table>
+      </VBox>
+    </f:content>
+
+    <!-- DynamicPage Footer -->
+    <f:footer>
+      <OverflowToolbar>
+        <ToolbarSpacer/>
+        <Button type="Accept"
+          text="Accept"/>
+        <Button type="Reject"
+          text="Reject"/>
+      </OverflowToolbar>
+    </f:footer>
+  </f:DynamicPage>
+</mvc:View>
