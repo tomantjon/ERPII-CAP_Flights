@@ -89,10 +89,11 @@
     "routing": {
       "config": {
         "routerClass": "sap.f.routing.Router",
+        "type": "View",
         "viewType": "XML",
         "async": true,
-        "viewPath": "hogent.flightfcl.view",
-        "controlAggregation": "flexibleColumnLayout",
+        "path": "hogent.flightfcl.view",
+        "controlId": "flexibleColumnLayout",
         "transition": "slide",
         "bypassed": {}
       },
@@ -100,13 +101,22 @@
         {
           "name": "List",
           "pattern": ":layout:",
-          "target": ["List"]
+          "target": ["List", "Detail"]
+        },
+        {
+          "name": "Detail",
+          "pattern": "detail/{flightpath}/{layout}",
+          "target": ["List", "Detail"]
         }
       ],
       "targets": {
         "List": {
-          "viewType": "XML",
+          "name": "List",
           "controlAggregation": "beginColumnPages"
+        },
+        "Detail": {
+          "name": "Detail",
+          "controlAggregation": "midColumnPages"
         }
       }
     },
