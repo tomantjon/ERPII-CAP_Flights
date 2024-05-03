@@ -6,6 +6,9 @@
     title="Detail">
     <VBox id="vbxMain">
       <Label text="Flight details will be added here"></Label>
+      <Label text="Airline: {carrID}"></Label>
+      <Label text="Connection: {connID}"></Label>
+      <Label text="Planetype: {planetype}"></Label>
     </VBox>
   </Page>
 </mvc:View>
