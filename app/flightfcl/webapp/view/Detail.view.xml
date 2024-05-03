@@ -5,10 +5,94 @@
   <Page id="page"
     title="Detail">
     <VBox id="vbxMain">
-      <Label text="Flight details will be added here"></Label>
-      <Label text="Airline: {carrID}"></Label>
-      <Label text="Connection: {connID}"></Label>
-      <Label text="Planetype: {planetype}"></Label>
+      <IconTabBar selectedKey="__filter0"
+        id="bar0">
+        <items>
+          <IconTabFilter text="Orders"
+            id="filter0"
+            iconColor="Default"
+            icon="sap-icon://flight">
+            <content>
+              <List noDataText="Geen gegevens"
+                id="list1">
+                <items>
+                  <StandardListItem title="Airline"
+                    description="{carrID}"
+                    id="item2"/>
+                  <StandardListItem title="Flight Number"
+                    description="{connID}"
+                    id="item3"/>
+                  <StandardListItem title="Date"
+                    description="{path: 'fldate'}"
+                    id="item4"/>
+                  <StandardListItem id="_IDGenStandardListItem1"
+                    title="Plane Type"
+                    description="{planetype}" />
+                </items>
+              </List>
+            </content>
+          </IconTabFilter>
+          <IconTabFilter text="Price Info"
+            icon="sap-icon://travel-expense"
+            iconColor="Default"
+            id="filter1">
+            <content>
+              <Text id="_IDGenText1"
+                text="Current Price: "></Text>
+              <ObjectNumber id="_IDGenObjectNumber1"
+                number="{price}"
+                unit="{currency_code}"
+                state="{= ${price} > 200 ? 'Error' : 'Success'}"/>
+            </content>
+          </IconTabFilter>
+          <IconTabFilter text="Passengers Info"
+            count="{= ${seatsocc} + ${seatsocc_b} + ${seatsocc_f}}"
+            icon="sap-icon://company-view"
+            iconColor="Default"
+            id="filter2">
+            <content>
+              <List id="_IDGenList1"
+                noDataText="Geen gegevens"
+                headerText="Economy">
+                <items>
+                  <StandardListItem id="_IDGenStandardListItem2"
+                    title="Max. capacity econ"
+                    description="{seatsmax}" />
+                  <StandardListItem id="_IDGenStandardListItem3"
+                    title="Occupied econ"
+                    description="{seatsocc}" />
+                </items>
+              </List>
+
+              <List id="_IDGenList2"
+                noDataText="Geen gegevens"
+                headerText="Business">
+                <items>
+                  <StandardListItem id="_IDGenStandardListItem4"
+                    title="Max. capacity bus."
+                    description="{seatsmax_b}" />
+                  <StandardListItem id="_IDGenStandardListItem5"
+                    title="Occupied bus."
+                    description="{seatsocc_b}" />
+                </items>
+              </List>
+
+              <List id="_IDGenList3"
+                noDataText="Geen gegevens"
+                headerText="1st Class">
+                <items>
+                  <StandardListItem id="_IDGenStandardListItem6"
+                    title="Max. capacity 1st"
+                    description="{seatsmax_f}" />
+                  <StandardListItem id="_IDGenStandardListItem7"
+                    title="Occupied 1st"
+                    description="{seatsocc_f}" />
+                </items>
+              </List>
+            </content>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
     </VBox>
   </Page>
 </mvc:View>
