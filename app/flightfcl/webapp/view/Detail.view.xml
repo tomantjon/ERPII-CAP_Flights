@@ -1,98 +1,151 @@
 <mvc:View controllerName="hogent.flightfcl.controller.Detail"
   xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.uxap"
   displayBlock="true"
-  xmlns="sap.m">
-  <Page id="page"
-    title="Detail">
-    <VBox id="vbxMain">
-      <IconTabBar selectedKey="__filter0"
-        id="bar0">
-        <items>
-          <IconTabFilter text="Orders"
-            id="filter0"
-            iconColor="Default"
-            icon="sap-icon://flight">
-            <content>
-              <List noDataText="Geen gegevens"
+  xmlns:m="sap.m">
+  <ObjectPageLayout id="ObjectPageLayout"
+    showTitleInHeaderContent="true"
+    alwaysShowContentHeader="false"
+    preserveHeaderStateOnScroll="false"
+    headerContentPinnable="true"
+    isChildPage="true"
+    upperCaseAnchorBar="false">
+    <headerTitle>
+      <ObjectPageDynamicHeaderTitle>
+        <expandedHeading>
+          <m:Title text="Flight: {carrID} - {connID}"
+            wrapping="true"
+            class="sapUiSmallMarginEnd"/>
+        </expandedHeading>
+
+        <snappedHeading>
+          <m:FlexBox wrap="Wrap"
+            fitContainer="true"
+            alignItems="Center">
+            <m:FlexBox wrap="NoWrap"
+              fitContainer="true"
+              alignItems="Center"
+              class="sapUiTinyMarginEnd">
+              <m:Title text="Flight: {carrID} - {connID}"
+                wrapping="true"/>
+            </m:FlexBox>
+          </m:FlexBox>
+        </snappedHeading>
+
+        <navigationActions>
+          <m:OverflowToolbarButton type="Transparent"
+            icon="sap-icon://full-screen"
+            press=".handleFullScreen"
+            tooltip="Enter Full Screen Mode" />
+          <m:OverflowToolbarButton type="Transparent"
+            icon="sap-icon://exit-full-screen"
+            press=".handleExitFullScreen"
+            tooltip="Exit Full Screen Mode" />
+          <m:OverflowToolbarButton type="Transparent"
+            icon="sap-icon://decline"
+            press=".handleClose"
+            tooltip="Close column" />
+        </navigationActions>
+
+      </ObjectPageDynamicHeaderTitle>
+    </headerTitle>
+
+    <headerContent>
+      <m:FlexBox wrap="Wrap"
+        fitContainer="true"
+        alignItems="Stretch">
+        <m:VBox justifyContent="Center"
+          class="sapUiSmallMarginEnd">
+          <m:Label text="Airline"/>
+          <m:Text text="{carrID}"/>
+        </m:VBox>
+        <m:VBox justifyContent="Center"
+          class="sapUiSmallMarginEnd">
+          <m:Label text="Connection"/>
+          <m:Text text="{connID}"/>
+        </m:VBox>
+        <m:VBox justifyContent="Center"
+          class="sapUiSmallMarginEnd">
+          <m:Label text="Price"/>
+          <m:ObjectNumber number="{price}"
+            unit="{currency_code}"
+            emphasized="false"/>
+        </m:VBox>
+      </m:FlexBox>
+    </headerContent>
+    <sections>
+      <ObjectPageSection title="General Information">
+        <subSections>
+          <ObjectPageSubSection>
+            <blocks>
+              <m:List noDataText="Geen gegevens"
                 id="list1">
-                <items>
-                  <StandardListItem title="Airline"
+                <m:items>
+                  <m:StandardListItem title="Airline"
                     description="{carrID}"
                     id="item2"/>
-                  <StandardListItem title="Flight Number"
+                  <m:StandardListItem title="Flight Number"
                     description="{connID}"
                     id="item3"/>
-                  <StandardListItem title="Date"
+                  <m:StandardListItem title="Date"
                     description="{path: 'fldate'}"
                     id="item4"/>
-                  <StandardListItem id="_IDGenStandardListItem1"
+                  <m:StandardListItem id="_IDGenStandardListItem1"
                     title="Plane Type"
                     description="{planetype}" />
-                </items>
-              </List>
-            </content>
-          </IconTabFilter>
-          <IconTabFilter text="Price Info"
-            icon="sap-icon://travel-expense"
-            iconColor="Default"
-            id="filter1">
-            <content>
-              <Text id="_IDGenText1"
-                text="Current Price: "></Text>
-              <ObjectNumber id="_IDGenObjectNumber1"
-                number="{price}"
-                unit="{currency_code}"
-                state="{= ${price} > 200 ? 'Error' : 'Success'}"/>
-            </content>
-          </IconTabFilter>
-          <IconTabFilter text="Passengers Info"
-            count="{= ${seatsocc} + ${seatsocc_b} + ${seatsocc_f}}"
-            icon="sap-icon://company-view"
-            iconColor="Default"
-            id="filter2">
-            <content>
-              <List id="_IDGenList1"
+                </m:items>
+              </m:List>
+            </blocks>
+          </ObjectPageSubSection>
+        </subSections>
+      </ObjectPageSection>
+      <ObjectPageSection title="Passenger Information">
+        <subSections>
+          <ObjectPageSubSection>
+            <blocks>
+              <m:List id="_IDGenList1"
                 noDataText="Geen gegevens"
                 headerText="Economy">
-                <items>
-                  <StandardListItem id="_IDGenStandardListItem2"
+                <m:items>
+                  <m:StandardListItem id="_IDGenStandardListItem2"
                     title="Max. capacity econ"
                     description="{seatsmax}" />
-                  <StandardListItem id="_IDGenStandardListItem3"
+                  <m:StandardListItem id="_IDGenStandardListItem3"
                     title="Occupied econ"
                     description="{seatsocc}" />
-                </items>
-              </List>
+                </m:items>
+              </m:List>
 
-              <List id="_IDGenList2"
+              <m:List id="_IDGenList2"
                 noDataText="Geen gegevens"
                 headerText="Business">
-                <items>
-                  <StandardListItem id="_IDGenStandardListItem4"
+                <m:items>
+                  <m:StandardListItem id="_IDGenStandardListItem4"
                     title="Max. capacity bus."
                     description="{seatsmax_b}" />
-                  <StandardListItem id="_IDGenStandardListItem5"
+                  <m:StandardListItem id="_IDGenStandardListItem5"
                     title="Occupied bus."
                     description="{seatsocc_b}" />
-                </items>
-              </List>
+                </m:items>
+              </m:List>
 
-              <List id="_IDGenList3"
+              <m:List id="_IDGenList3"
                 noDataText="Geen gegevens"
                 headerText="1st Class">
-                <items>
-                  <StandardListItem id="_IDGenStandardListItem6"
+                <m:items>
+                  <m:StandardListItem id="_IDGenStandardListItem6"
                     title="Max. capacity 1st"
                     description="{seatsmax_f}" />
-                  <StandardListItem id="_IDGenStandardListItem7"
+                  <m:StandardListItem id="_IDGenStandardListItem7"
                     title="Occupied 1st"
                     description="{seatsocc_f}" />
-                </items>
-              </List>
-            </content>
-          </IconTabFilter>
-        </items>
-      </IconTabBar>
-    </VBox>
-  </Page>
+                </m:items>
+              </m:List>
+            </blocks>
+          </ObjectPageSubSection>
+        </subSections>
+      </ObjectPageSection>
+    </sections>
+
+  </ObjectPageLayout>
 </mvc:View>

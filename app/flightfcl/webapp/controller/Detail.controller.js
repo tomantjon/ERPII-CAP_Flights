@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller"],
+  ["sap/ui/core/mvc/Controller", "sap/f/library"],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller) {
+  function (Controller, fioriLibrary) {
     "use strict";
 
     return Controller.extend("hogent.flightfcl.controller.Detail", {
@@ -22,10 +22,30 @@ sap.ui.define(
       },
 
       _onRouteMatched: function (oEvent) {
-        this._product =
-          oEvent.getParameter("arguments").flightpath || this._product || "0";
+        this._flight =
+          oEvent.getParameter("arguments").flightpath || this._flight || "0";
         this.getView().bindElement({
-          path: "/" + this._product,
+          path: "/" + this._flight,
+        });
+      },
+
+      handleFullScreen: function () {
+        this.oRouter.navTo("Detail", {
+          layout: fioriLibrary.LayoutType.MidColumnFullScreen,
+          flightpath: this._flight,
+        });
+      },
+
+      handleExitFullScreen: function () {
+        this.oRouter.navTo("Detail", {
+          layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded,
+          flightpath: this._flight,
+        });
+      },
+
+      handleClose: function () {
+        this.oRouter.navTo("List", {
+          layout: fioriLibrary.LayoutType.OneColumn,
         });
       },
 
