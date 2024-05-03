@@ -49,7 +49,9 @@
           </columns>
           <items>
             <ColumnListItem id="_IDGenColumnListItem1"
-              vAlign="Middle">
+              vAlign="Middle"
+              type="Navigation"
+              press="handleListItemPress">
               <cells>
                 <Text id="txtCarrId"
                   text="{carrID}" />

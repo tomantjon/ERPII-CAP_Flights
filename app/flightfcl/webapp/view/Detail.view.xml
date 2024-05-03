@@ -1,0 +1,11 @@
+<mvc:View controllerName="hogent.flightfcl.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
+  xmlns="sap.m">
+  <Page id="page"
+    title="Detail">
+    <VBox id="vbxMain">
+      <Label text="Flight details will be added here"></Label>
+    </VBox>
+  </Page>
+</mvc:View>

@@ -8,5 +8,9 @@
             <mvc:XMLView id="beginView"
                 viewName="hogent.flightfcl.view.List"/>
         </beginColumnPages>
+        <midColumnPages>
+            <mvc:XMLView id="detailView"
+                viewName="hogent.flightfcl.view.Detail"/>
+        </midColumnPages>
     </FlexibleColumnLayout>
 </mvc:View>
